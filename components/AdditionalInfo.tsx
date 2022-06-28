@@ -10,16 +10,18 @@ const AdditionalInfo = ({route}: any) => {
     let date = moment(new Date(route.params.publishedAt)).format('LLL');
 
     return <ScrollView>
-        <Image
-            source={{uri: route.params.urlToImage}}
-            containerStyle={{
+        <View style={{alignItems: 'center'}}>
+            <Image
+                source={{uri: route.params.urlToImage}}
+                containerStyle={{
+                    aspectRatio: 1,
+                    width: '100%',
 
-                aspectRatio: 1,
-                width: '100%',
-                height: 400
-            }}
-            PlaceholderContent={<ActivityIndicator/>}
-        />
+                }}
+                PlaceholderContent={<ActivityIndicator/>}
+            />
+        </View>
+
         <View style={{paddingTop: 15, margin: 10}}>
 
             <Text style={{fontWeight: 'bold', fontSize: 21}}>{route.params.title}</Text>

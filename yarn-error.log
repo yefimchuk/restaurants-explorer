@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add @types/react-native-multi-selectbox
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%NVM_HOME%;%NVM_SYMLINK%;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\dmitr\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\nvm;C:\Program Files\nodejs;C:\Program Files\heroku\bin;C:\IT\Test-work\Test5\RestaurantsExplorer\node_modules\.bin
@@ -14,12 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\IT\Test-work\Test5\RestaurantsExplorer\package.json: Unexpected token } in JSON at position 273
-      at JSON.parse (<anonymous>)
-      at C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:1629:59
-      at Generator.next (<anonymous>)
-      at step (C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:310:30)
-      at C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:321:13
+  Error: https://registry.yarnpkg.com/@types%2freact-native-multi-selectbox: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:66145:18)
+      at Request.self.callback (C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\nvm\v16.15.1\node_modules\yarn\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
 
 npm manifest: 
   {
@@ -31,8 +36,7 @@ npm manifest:
       "android": "expo start --android",
       "ios": "expo start --ios",
       "web": "expo start --web",
-      "eject": "expo eject",
-  
+      "eject": "expo eject"
     },
     "dependencies": {
       "@react-native-community/masked-view": "^0.1.11",
@@ -40,6 +44,7 @@ npm manifest:
       "@reduxjs/toolkit": "^1.8.3",
       "@rneui/base": "^4.0.0-rc.5",
       "@rneui/themed": "^4.0.0-rc.5",
+      "@types/lodash": "^4.14.182",
       "@types/node": "8",
       "antd-mobile": "^5.17.1",
       "axios": "^0.27.2",
@@ -49,11 +54,13 @@ npm manifest:
       "fast-memoize": "^2.5.2",
       "formik": "^2.2.9",
       "lodash.debounce": "^4.0.8",
+      "moment": "^2.29.3",
       "react": "17.0.2",
       "react-dom": "17.0.2",
       "react-native": "0.68.2",
       "react-native-animated-pagination-dot": "^0.3.2",
       "react-native-elements": "^3.4.2",
+      "react-native-multi-selectbox": "^1.5.0",
       "react-native-pagination": "^1.5.5",
       "react-native-safe-area-context": "4.2.4",
       "react-native-screens": "^3.14.1",
@@ -68,16 +75,12 @@ npm manifest:
       "@react-native-community/datetimepicker": "^6.2.0",
       "@react-navigation/native": "^6.0.10",
       "@react-navigation/native-stack": "^6.6.2",
-      "@types/react": "~17.0.21",
+      "@types/react": "17.0.14",
       "@types/react-native": "~0.66.13",
       "customize-cra": "^1.0.0",
       "react-app-rewired": "^2.2.1",
       "react-native-dropdown-select-list": "^1.0.16",
       "typescript": "^3.1.6"
-    },
-    "resolutions": {
-      "@types/react-native": "~0.66.13",
-      "react-devtools-core": "^4.13.4"
     },
     "private": true
   }
@@ -1963,6 +1966,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/js-cookie/-/js-cookie-2.2.7.tgz#226a9e31680835a6188e887f3988e60c04d3f6a3"
     integrity sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==
   
+  "@types/lodash@^4.14.182":
+    version "4.14.182"
+    resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.182.tgz#05301a4d5e62963227eaafe0ce04dd77c54ea5c2"
+    integrity sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==
+  
   "@types/node@*":
     version "18.0.0"
     resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.0.tgz#67c7b724e1bcdd7a8821ce0d5ee184d3b4dd525a"
@@ -1986,14 +1994,7 @@ Lockfile:
       "@types/react" "*"
       "@types/react-native" "*"
   
-  "@types/react-native@*":
-    version "0.69.1"
-    resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.69.1.tgz#580ee9ab6557c8f5ad76bf5ab915689ca0faecfe"
-    integrity sha512-Vy8yvbR2bdUXTZ3u4DBFUGxo26h7p71Cdv7JtO6ZEXD4mpediuRMbRqyoWirlQB/p9Vh3lYVVViNyt8JK/05NA==
-    dependencies:
-      "@types/react" "*"
-  
-  "@types/react-native@~0.66.13":
+  "@types/react-native@*", "@types/react-native@~0.66.13":
     version "0.66.19"
     resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.66.19.tgz#54745889bd74b500d81e5d777ac4684841c56c73"
     integrity sha512-Y7lpJvsAzg7hjTDfKf0Ix7ETohKmFEa2f0R6clXjX4cSG4Ixo/BbWSmbYCRsMJqJbqkuuJYH0VD7tb2UG7mP3Q==
@@ -2001,18 +2002,18 @@ Lockfile:
       "@types/react" "*"
   
   "@types/react@*":
-    version "17.0.14"
-    resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.14.tgz#f0629761ca02945c4e8fea99b8177f4c5c61fb0f"
-    integrity sha512-0WwKHUbWuQWOce61UexYuWTGuGY/8JvtUe/dtQ6lR4sZ3UiylHotJeWpf3ArP9+DSGUoLY3wbU59VyMrJps5VQ==
+    version "17.0.47"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.47.tgz#4ee71aaf4c5a9e290e03aa4d0d313c5d666b3b78"
+    integrity sha512-mk0BL8zBinf2ozNr3qPnlu1oyVTYq+4V7WA76RgxUAtf0Em/Wbid38KN6n4abEkvO4xMTBWmnP1FtQzgkEiJoA==
     dependencies:
       "@types/prop-types" "*"
       "@types/scheduler" "*"
       csstype "^3.0.2"
   
-  "@types/react@~17.0.21":
-    version "17.0.47"
-    resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.47.tgz#4ee71aaf4c5a9e290e03aa4d0d313c5d666b3b78"
-    integrity sha512-mk0BL8zBinf2ozNr3qPnlu1oyVTYq+4V7WA76RgxUAtf0Em/Wbid38KN6n4abEkvO4xMTBWmnP1FtQzgkEiJoA==
+  "@types/react@17.0.14":
+    version "17.0.14"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.14.tgz#f0629761ca02945c4e8fea99b8177f4c5c61fb0f"
+    integrity sha512-0WwKHUbWuQWOce61UexYuWTGuGY/8JvtUe/dtQ6lR4sZ3UiylHotJeWpf3ArP9+DSGUoLY3wbU59VyMrJps5VQ==
     dependencies:
       "@types/prop-types" "*"
       "@types/scheduler" "*"
@@ -5399,6 +5400,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
     integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
   
+  moment@^2.29.3:
+    version "2.29.3"
+    resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.3.tgz#edd47411c322413999f7a5940d526de183c031f3"
+    integrity sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw==
+  
   ms@2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -6198,6 +6204,11 @@ Lockfile:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
     integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
+  
+  react-native-multi-selectbox@^1.5.0:
+    version "1.5.0"
+    resolved "https://registry.yarnpkg.com/react-native-multi-selectbox/-/react-native-multi-selectbox-1.5.0.tgz#a2bbb3ae9a76f10f6f0404ae9c9b0b573a051614"
+    integrity sha512-yRxV8PPD0TIRoXK4WduHcADzroB2UWGbJIlKEGkvz8sPPs80o8wdJDthuqbvO7U6rIP2ABb/TRaJAFAxFTi8jw==
   
   react-native-pagination@^1.5.5:
     version "1.5.5"

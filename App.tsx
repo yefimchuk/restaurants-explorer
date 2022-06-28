@@ -8,17 +8,18 @@ import React from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import AppNavigator from "./app.navigator";
 import MyStack from "./app.navigator";
+import Example from "./components/SortBy";
 
 export default function App() {
 
     return (
         <Provider store={store}>
 
+
             <View style={styles.container}>
-
-                    <MyStack/>
-
+                <MyStack/>
             </View>
+
 
 
         </Provider>
