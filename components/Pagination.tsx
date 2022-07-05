@@ -15,7 +15,7 @@ const ExampleDotPaginate = () => {
     return (
         <View style={{flexDirection: "row", justifyContent: "space-between",alignItems: "center", padding: 20}}>
             <Button onPress={() => handleClick(page > 0, page - 1)} title={"Prev"}/>
-            <View style={{paddingLeft: 50,paddingRight:50}}>
+            <View style={{paddingLeft: 10,paddingRight:50}}>
                 <PaginationDot
                     activeDotColor={'black'}
                     curPage={page}

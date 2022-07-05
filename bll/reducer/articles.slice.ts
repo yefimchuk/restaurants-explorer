@@ -3,10 +3,9 @@ import newsServiceInstance from "../../service/serviceNews";
 
 export const fetchArticles: any = createAsyncThunk(
     "articles/fetchArticles",
-    async ({page, values, } : {page : number, values?: string}, {rejectWithValue}) => {
-
+    async ({page, values, FDate}: { page: number, values?: string, FDate?: string }, {rejectWithValue}) => {
         try {
-            return await newsServiceInstance.fetchNews({page, values});
+            return await newsServiceInstance.fetchNews({page, values,FDate});
         } catch (err) {
             return rejectWithValue(err);
         }
@@ -29,10 +28,12 @@ export const articles: any = createSlice({
         },
         [fetchArticles.fulfilled]: (state, action) => {
             state.newsData = action.payload.data.articles;
+
             state.total = action.payload.data.totalResults
             state.isFetching = false;
         },
         [fetchArticles.rejected]: (state, action) => {
+
             state.errors = action.payload.data;
             state.isFetching = false;
         },

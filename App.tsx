@@ -5,24 +5,30 @@ import store from "./bll/store";
 import Articles from "./components/Articles";
 import Header from "./components/Header";
 import React from "react";
+import {NavigationContainer} from '@react-navigation/native';
+import AppNavigator from "./app.navigator";
+import MyStack from "./app.navigator";
 
 export default function App() {
 
     return (
         <Provider store={store}>
+
             <View style={styles.container}>
-               <Header/>
-                <ScrollView><Articles/></ScrollView>
+
+                    <MyStack/>
+
             </View>
+
+
         </Provider>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+
     },
 });

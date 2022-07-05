@@ -6,6 +6,8 @@ import {useDispatch} from "react-redux";
 import {Formik, useFormik} from "formik";
 // @ts-ignore
 import {debounce} from "lodash";
+import MyDatePicker from "./Data";
+import Example from "./Dropdown";
 
 
 function Header(this: any) {
@@ -23,7 +25,9 @@ function Header(this: any) {
     return (
         <View style={styles.header}>
             <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center"}}>
-                <Text style={styles.header__text}>News</Text>
+
+                <MyDatePicker/>
+
                 <Formik
                     initialValues={{searcher: ''}}
                     onSubmit={values => {
