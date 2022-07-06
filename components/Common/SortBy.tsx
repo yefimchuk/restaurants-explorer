@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 import SelectBox from "react-native-multi-selectbox";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,7 +8,7 @@ import {
 } from "../../bll/reducer/articles.selector";
 import { fetchArticles } from "../../bll/reducer/articles.slice";
 
-const K_OPTIONS = [
+const sortOptions = [
   {
     item: "relevancy",
   },
@@ -20,15 +20,15 @@ const K_OPTIONS = [
   },
 ];
 
-function Exampled() {
+function SortPicker() {
   const [selectedTeam, setSelectedTeam] = useState({});
   const values = useSelector(selectSearchValue);
   const dateTime = useSelector(selectDateTime);
   return (
-    <View style={{ margin: 20, width: "90%", alignItems: "center" }}>
+    <View style={styles.sort}>
       <SelectBox
         label="Sort by"
-        options={K_OPTIONS}
+        options={sortOptions}
         value={selectedTeam}
         onChange={onChange()}
         hideInputFilter={false}
@@ -45,4 +45,7 @@ function Exampled() {
   }
 }
 
-export default Exampled;
+export default SortPicker;
+const styles = StyleSheet.create({
+  sort: { margin: 20, width: "90%", alignItems: "center" }
+});

@@ -1,12 +1,12 @@
 import React from "react";
-import { Image, View } from "react-native";
+import {Image, StyleSheet, View} from "react-native";
 import "../../assets/icon.png";
 
 function Loader() {
   return (
-    <View style={{ alignItems: "center", width: "100%" }}>
+    <View style={styles.loader__container}>
       <Image
-        style={{ margin: 30, width: 30, height: 30 }}
+        style={styles.loader__image}
         source={require("../../assets/loader.gif")}
       />
     </View>
@@ -14,3 +14,8 @@ function Loader() {
 }
 
 export default Loader;
+
+const styles = StyleSheet.create({
+    loader__container: { alignItems: "center", width: "100%" },
+    loader__image: { margin: 30, width: 30, height: 30 }
+});

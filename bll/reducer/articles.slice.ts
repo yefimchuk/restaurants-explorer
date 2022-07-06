@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import newsServiceInstance from "../../service/serviceNews";
+import {ArticleInitialStateTypes, FetchDataTypes} from "../../types/slice.types";
 
 export const fetchArticles: any = createAsyncThunk(
   "articles/fetchArticles",
@@ -9,12 +10,7 @@ export const fetchArticles: any = createAsyncThunk(
       values,
       FDate,
       sort,
-    }: {
-      page: number;
-      values?: string;
-      FDate?: string;
-      sort: { item: string };
-    },
+    }: FetchDataTypes,
     { rejectWithValue }
   ) => {
     try {
@@ -42,7 +38,7 @@ export const articles: any = createSlice({
     isFetching: false,
     dateTime: null,
     error: null,
-  } as any,
+  } as ArticleInitialStateTypes,
   reducers: {
     setSearchValue(state, action) {
       state.searchValue = action.payload;
