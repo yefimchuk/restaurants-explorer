@@ -11,14 +11,17 @@ const Stack = createNativeStackNavigator();
 const MyStack = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator >
+            <Stack.Navigator>
                 <Stack.Screen
                     options={{headerShown: false}}
                     name="Articles"
                     component={Articles}
 
                 />
-                <Stack.Screen name="AdditionalInfo" component={AdditionalInfo} />
+                <Stack.Screen
+                    name="AdditionalInfo"
+                    options={(props: { route: any }) => ({title: props.route.params.title})}
+                    component={AdditionalInfo}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

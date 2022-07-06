@@ -19,15 +19,15 @@ function Articles({navigation}: any) {
     return (
         <View>
             <Header/>
-            <ScrollView>
+            <ScrollView style={{height: '90%'}}>
                 <View>
                     <View style={{alignItems: 'center'}}>
                         {newsData && <ExampleDotPaginate/>}
                     </View>
                     <View>
-                        {!isFetching ? newsData && newsData.map((item: { description: string, title: string }, index: number) =>
+                        {!isFetching ? newsData && newsData.map((item: object, index: number, arr: object[]) =>
                             <Article navigation={navigation}
-                                     key={index} description={item.description} title={item.title}/>) : <Loader/>}
+                                     key={index} data={arr[index]}/>) : <Loader/>}
                     </View>
 
 
